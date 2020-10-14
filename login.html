@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/Bmob-2.2.5.min.js"></script>
+    <link rel="stylesheet"  href="css/login.css" />
+    <link href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="login-box">
+        <div class="login-form">
+            <h2>Welcome</h2>
+            <input type="text" class="text" id="username" name="user" placeholder="用户名">
+            <input type="password" class="text" id="password" name="pass" placeholder="密码">
+            <button type="submit" class="login-1" onclick="login()">登 录</button>
+        </div>
+    </div>
+
+</body>
+</html>
+    <script>
+        Bmob.initialize("98a4d305c75ff9de", "010703");
+        Bmob.debug(true);
+        function login(){
+            Bmob.User.login(document.getElementById("username").value,document.getElementById("password").value).then(res => {
+                location.href="index.html";
+            }).catch(err => {
+                alert(err.error);
+            });
+        }
+    </script>

@@ -1,16 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/Bmob-2.2.5.min.js"></script>
     <link rel="stylesheet"  href="css/index.css" />
-    <title>Title</title>
+    <link href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
-<body>
-    <div class="card">
-        <div class="imgBox">
-            <img src="img/time.jpg">
-        </div>
-    </div>
+<body onload="myFunction()">
+    <header class="sticky" >
+        <a href="#" class="logo">logo</a>
+        <ui>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ui>
+    </header>
+    <section class="banner"></section>
+    <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+          var header = document.querySelector("header");
+          header.classList.toggle("sticky",window.scrollY > 0);
+        })
+    </script>
+
 
 </body>
 </html>
+     <script>
+        Bmob.initialize("98a4d305c75ff9de", "010703");
+        Bmob.debug(true);
+        function myFunction(){
+            let user = Bmob.User.current();
+            var spanTag = document.getElementById("user");
+            spanTag.innerHTML = user.id;
+
+        }
+    </script>
